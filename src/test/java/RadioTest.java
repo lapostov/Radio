@@ -15,8 +15,8 @@ public class RadioTest {
     @Test // Устанавливает максимальную громкость
     public void setToMaxVolume() {
         Radio rad = new Radio();
-        rad.setToMaxVolume();
-        int expected = 10;
+        rad.setMaxVolume();
+        int expected = 100;
         int actual = rad.currentVolume;
         Assertions.assertEquals(expected, actual);
     }
@@ -39,22 +39,12 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test // Устанавливает громкость 10 при 10
-    public void setAddAtMax() {
-        Radio rad = new Radio();
-        rad.setAddAtMax();
-        int expected = 10;
-        int actual = rad.setAddAtMax();
-        Assertions.assertEquals(expected, actual);
-
-    }
-
-    @Test // Устанавливает громкость 10 при 10
+    @Test // Устанавливает минимальную громкость
     public void setAddAtMin() {
         Radio rad = new Radio();
-        rad.setAddAtMin();
+        rad.setMinVolume();
         int expected = 0;
-        int actual = rad.setAddAtMin();
+        int actual = rad.setMinVolume();
         Assertions.assertEquals(expected, actual);
 
     }

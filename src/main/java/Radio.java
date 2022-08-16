@@ -1,46 +1,42 @@
 public class Radio {
     public int currentVolume; // Может устанавливать громкость
 
-    public void setToMaxVolume() {  // Устанавливает максимальную громкость
-        currentVolume = 10;
+    private int stationsCount;
+
+    public Radio() {
+        this.stationsCount = 10;
+    }
+
+    public Radio(int stationsCount) {
+        this.stationsCount = stationsCount;
     }
 
     public void increaseVolume() { //  Устанавливает громкость на 1 больше
         currentVolume = 6;
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
+        } else {
+            currentVolume = 100;
         }
     }
 
     public void reduceVolume() { //  Устанавливает громкость на 1 меньше
         currentVolume = 10;
-        if (currentVolume <= 10) {
+        if (currentVolume <= 100) {
             currentVolume = currentVolume - 1;
+        } else {
+            currentVolume = 0;
         }
     }
 
-    public int setAddAtMax() { //Устанавливает максимальную громкость
-        int[] volumes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int maxVolume = 0;
-        for (int volume : volumes) {
-            if (volume >= volumes[maxVolume]) {
-                maxVolume = volume;
-            }
-        }
-        return maxVolume;
+    public void setMaxVolume() { //Устанавливает максимальную громкость
+        currentVolume = 100;
     }
 
-    public int setAddAtMin() { //Устанавливает минимальную громкость
-        int[] volumes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int minVolume = 0;
-        for (int volume : volumes) {
-            if (volume <= volumes[minVolume]) {
-                volume = minVolume;
-            }
-        }
-        return minVolume;
+    public int setMinVolume() { //Устанавливает минимальную громкость
+        int currentMinVolume = 0;
+        return currentMinVolume;
     }
-
 
     public int currentStation; // Может устанавливать радиостанцию
 
@@ -51,11 +47,10 @@ public class Radio {
 
     public void next() { //  Устанавливает станцию на 1 больше
 
-        if (currentStation < 9) {
+        if (currentStation < stationsCount - 1) {
             currentStation = currentStation + 1;
             return;
-        }
-        if (currentStation == 9) {
+        } else {
             currentStation = 0;
         }
     }
@@ -63,7 +58,7 @@ public class Radio {
     public void reduceStation() { //  Устанавливает станцию на 1 меньше
 
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = stationsCount - 1;
             return;
         } else {
             currentStation = 0;
@@ -79,10 +74,9 @@ public class Radio {
         if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > stationsCount - 1) {
             return;
         }
         currentStation = newCurrentStation;
     }
-
 }

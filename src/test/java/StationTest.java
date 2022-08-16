@@ -25,9 +25,9 @@ public class StationTest {
     @Test // Устанавливает станцию на 1 больше
     public void increaseStation() {
         Radio rad = new Radio();
-        rad.setCurrentStation(8);
+        rad.setCurrentStation(9);
         rad.next();
-        int expected = 9;
+        int expected = 0;
         int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
