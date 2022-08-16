@@ -1,4 +1,4 @@
-public class RadioVolumeStation {
+public class Radio {
     public int currentVolume; // Может устанавливать громкость
 
     public void setToMaxVolume() {  // Устанавливает максимальную громкость
@@ -19,7 +19,7 @@ public class RadioVolumeStation {
         }
     }
 
-    public int setAddAtMax() {
+    public int setAddAtMax() { //Устанавливает максимальную громкость
         int[] volumes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int maxVolume = 0;
         for (int volume : volumes) {
@@ -30,7 +30,7 @@ public class RadioVolumeStation {
         return maxVolume;
     }
 
-    public int setAddAtMin() {
+    public int setAddAtMin() { //Устанавливает минимальную громкость
         int[] volumes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int minVolume = 0;
         for (int volume : volumes) {
@@ -42,9 +42,6 @@ public class RadioVolumeStation {
     }
 
 
-///--------------------------------------------------------------------/////
-
-
     public int currentStation; // Может устанавливать радиостанцию
 
     public void setToMaxStation() {  // Устанавливает максимальную станцию
@@ -52,10 +49,11 @@ public class RadioVolumeStation {
         currentStation = 9;
     }
 
-    public void increaseStation() { //  Устанавливает станцию на 1 больше
+    public void next() { //  Устанавливает станцию на 1 больше
 
         if (currentStation < 9) {
             currentStation = currentStation + 1;
+            return;
         }
         if (currentStation == 9) {
             currentStation = 0;
@@ -66,16 +64,14 @@ public class RadioVolumeStation {
 
         if (currentStation == 0) {
             currentStation = 9;
+            return;
+        } else {
+            currentStation = 0;
         }
-
-        if (currentStation <= 9) {
-            currentStation = currentStation - 1;
-        }
-
+        currentStation = currentStation - 1;
     }
 
     public int getCurrentStation() {
-        currentStation = 9;
         return currentStation;
     }
 
