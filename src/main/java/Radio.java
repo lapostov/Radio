@@ -1,17 +1,49 @@
 public class Radio {
-    public int currentVolume; // Может устанавливать громкость
-
+    private int currentVolume;
+    private int currentStation;
     private int stationsCount;
+
+    ///////////////////////////
 
     public Radio() {
         this.stationsCount = 10;
     }
-
     public Radio(int stationsCount) {
         this.stationsCount = stationsCount;
     }
 
-    public void increaseVolume() { //  Устанавливает громкость на 1 больше
+    ///////////////////////////
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0)
+        {
+            return;
+        }
+        if (currentVolume > 100){
+            return;
+        }
+        this.currentVolume = currentVolume;
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public void setCurrentStation(int currentStation) {
+        if (currentStation < 0) {
+            return;
+        }
+        if (currentStation > 9) {
+            return;
+        }
+        this.currentStation = currentStation;
+    }
+
+
+       public void increaseVolume() { //  Устанавливает громкость на 1 больше
         currentVolume = 6;
         if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
@@ -38,7 +70,6 @@ public class Radio {
         return currentMinVolume;
     }
 
-    public int currentStation; // Может устанавливать радиостанцию
 
     public void setToMaxStation() {  // Устанавливает максимальную станцию
 
@@ -64,19 +95,5 @@ public class Radio {
             currentStation = 0;
         }
         currentStation = currentStation - 1;
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
-            return;
-        }
-        if (newCurrentStation > stationsCount - 1) {
-            return;
-        }
-        currentStation = newCurrentStation;
     }
 }

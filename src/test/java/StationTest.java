@@ -3,12 +3,12 @@ import org.junit.jupiter.api.Assertions;
 
 public class StationTest {
 
-    @Test // Может устанавливать станцию
+    @Test // Должен устанавливать станцию
     public void ShouldSetStation() {
         Radio rad = new Radio();
-        rad.setToMaxStation();
-        int expected = 9;
-        int actual = rad.currentStation;
+        rad.setCurrentStation(5);
+        int expected = 5;
+        int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -25,9 +25,9 @@ public class StationTest {
     @Test // Устанавливает станцию на 1 больше
     public void increaseStation() {
         Radio rad = new Radio();
-        rad.setCurrentStation(9);
+        rad.setCurrentStation(1);
         rad.next();
-        int expected = 0;
+        int expected = 2;
         int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -35,10 +35,10 @@ public class StationTest {
     @Test // Устанавливает станцию на 1 меньше
     public void reduceStation() {
         Radio rad = new Radio();
-        rad.setCurrentStation(9);
+        rad.setCurrentStation(0);
         rad.reduceStation();
-        int expected = 8;
-        int actual = rad.currentStation;
+        int expected = 9;
+        int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
