@@ -50,4 +50,14 @@ public class StationTest {
         int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
-}
+
+        @Test // Станция 15
+        public void ShouldSetFifteen() {
+            Radio rad = new Radio();
+            rad.setCurrentStation(15);
+            int expected = 15;
+            int actual = rad.getCurrentStation();
+            Assertions.assertEquals(expected, actual);
+        }
+    }
+

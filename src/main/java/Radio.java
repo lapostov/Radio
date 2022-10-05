@@ -6,7 +6,7 @@ public class Radio {
     ///////////////////////////
 
     public Radio() {
-        this.stationsCount = 10;
+        this.stationsCount = 20;
     }
     public Radio(int stationsCount) {
         this.stationsCount = stationsCount;
@@ -36,7 +36,7 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > 20) {
             return;
         }
         this.currentStation = currentStation;
