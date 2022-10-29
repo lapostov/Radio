@@ -6,7 +6,7 @@ public class Radio {
     ///////////////////////////
 
     public Radio() {
-        this.stationsCount = 10;
+        this.stationsCount = 20;
     }
     public Radio(int stationsCount) {
         this.stationsCount = stationsCount;
@@ -78,8 +78,8 @@ public class Radio {
             currentStation = stationsCount - 1;
             return;
         } else {
-            currentStation = 0;
+            currentStation = currentStation - 1;
         }
-        currentStation = currentStation - 1;
     }
-}
+
+   }
