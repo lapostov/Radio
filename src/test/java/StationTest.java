@@ -13,25 +13,12 @@ public class StationTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test // Может устанавливать станцию
     public void ShouldSetStation() {
         Radio rad = new Radio();
-        rad.setToMaxStation();
-        int expected = 9;
-        int actual = rad.currentStation;
+        rad.setCurrentStation(5);
+        int expected = 5;
+        int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,7 +26,6 @@ public class StationTest {
     public void setToMaxStation() {
         Radio rad = new Radio();
         rad.setCurrentStation(9);
-        rad.setToMaxStation();
         int expected = 9;
         int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
@@ -50,9 +36,9 @@ public class StationTest {
     public void reduceStation() {
         Radio rad = new Radio();
         rad.setCurrentStation(9);
-        rad.reduceStation();
+        rad.prev();
         int expected = 8;
-        int actual = rad.currentStation;
+        int actual = rad.getCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
